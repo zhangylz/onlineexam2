@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ylzh.onlineexam.mapper.GradeMapper">
+  <resultMap id="BaseResultMap" type="com.ylzh.onlineexam.entity.Grade">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="grade_name" jdbcType="VARCHAR" property="gradeName" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from grade
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ylzh.onlineexam.entity.Grade">
+    insert into grade (id, grade_name, sort
+      )
+    values (#{id,jdbcType=VARCHAR}, #{gradeName,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.ylzh.onlineexam.entity.Grade">
+    update grade
+    set grade_name = #{gradeName,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, grade_name, sort
+    from grade
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, grade_name, sort
+    from grade
+  </select>
+  <resultMap id="BaseResultMap" type="com.ylzh.onlineexam.entity.Grade">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="exam_id" jdbcType="VARCHAR" property="examId" />
+    <result column="result" jdbcType="INTEGER" property="result" />
+    <result column="auto_result" jdbcType="INTEGER" property="autoResult" />
+    <result column="manul_result" jdbcType="INTEGER" property="manulResult" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="answer_json" jdbcType="LONGVARCHAR" property="answerJson" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from grade
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ylzh.onlineexam.entity.Grade">
+    insert into grade (id, user_id, exam_id, 
+      result, auto_result, manul_result, 
+      create_time, update_time, status, 
+      answer_json)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{examId,jdbcType=VARCHAR}, 
+      #{result,jdbcType=INTEGER}, #{autoResult,jdbcType=INTEGER}, #{manulResult,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
+      #{answerJson,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.ylzh.onlineexam.entity.Grade">
+    update grade
+    set user_id = #{userId,jdbcType=VARCHAR},
+      exam_id = #{examId,jdbcType=VARCHAR},
+      result = #{result,jdbcType=INTEGER},
+      auto_result = #{autoResult,jdbcType=INTEGER},
+      manul_result = #{manulResult,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      answer_json = #{answerJson,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, user_id, exam_id, result, auto_result, manul_result, create_time, update_time, 
+    status, answer_json
+    from grade
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, user_id, exam_id, result, auto_result, manul_result, create_time, update_time, 
+    status, answer_json
+    from grade
+  </select>
+  <resultMap id="BaseResultMap" type="com.ylzh.onlineexam.entity.Grade">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="exam_id" jdbcType="VARCHAR" property="examId" />
+    <result column="result" jdbcType="INTEGER" property="result" />
+    <result column="auto_result" jdbcType="INTEGER" property="autoResult" />
+    <result column="manul_result" jdbcType="INTEGER" property="manulResult" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="answer_json" jdbcType="LONGVARCHAR" property="answerJson" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from grade
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ylzh.onlineexam.entity.Grade">
+    insert into grade (id, user_id, exam_id, 
+      result, auto_result, manul_result, 
+      create_time, update_time, status, 
+      answer_json)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{examId,jdbcType=VARCHAR}, 
+      #{result,jdbcType=INTEGER}, #{autoResult,jdbcType=INTEGER}, #{manulResult,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
+      #{answerJson,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.ylzh.onlineexam.entity.Grade">
+    update grade
+    set user_id = #{userId,jdbcType=VARCHAR},
+      exam_id = #{examId,jdbcType=VARCHAR},
+      result = #{result,jdbcType=INTEGER},
+      auto_result = #{autoResult,jdbcType=INTEGER},
+      manul_result = #{manulResult,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      answer_json = #{answerJson,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, user_id, exam_id, result, auto_result, manul_result, create_time, update_time, 
+    status, answer_json
+    from grade
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, user_id, exam_id, result, auto_result, manul_result, create_time, update_time, 
+    status, answer_json
+    from grade
+  </select>
+</mapper>

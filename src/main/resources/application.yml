@@ -2,7 +2,7 @@ server:
   port: 8989
 mybatis:
   type-aliases-package: com.ylzh.onlineexam.entity
-  mapper-locations: classpath:/mybatis/mapper/*.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
   #config-location:  classpath:/mybatis/config/mybatis-config.xml
 spring:
   thymeleaf:

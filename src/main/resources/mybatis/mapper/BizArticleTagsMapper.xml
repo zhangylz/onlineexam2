@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ylzh.onlineexam.mapper.BizArticleTagsMapper">
+  <resultMap id="BaseResultMap" type="com.ylzh.onlineexam.entity.BizArticleTags">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="tag_id" jdbcType="INTEGER" property="tagId" />
+    <result column="article_id" jdbcType="INTEGER" property="articleId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from biz_article_tags
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ylzh.onlineexam.entity.BizArticleTags">
+    insert into biz_article_tags (id, tag_id, article_id, 
+      create_time, update_time)
+    values (#{id,jdbcType=INTEGER}, #{tagId,jdbcType=INTEGER}, #{articleId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.ylzh.onlineexam.entity.BizArticleTags">
+    update biz_article_tags
+    set tag_id = #{tagId,jdbcType=INTEGER},
+      article_id = #{articleId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, tag_id, article_id, create_time, update_time
+    from biz_article_tags
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, tag_id, article_id, create_time, update_time
+    from biz_article_tags
+  </select>
+  <resultMap id="BaseResultMap" type="com.ylzh.onlineexam.entity.BizArticleTags">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="tag_id" jdbcType="INTEGER" property="tagId" />
+    <result column="article_id" jdbcType="INTEGER" property="articleId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from biz_article_tags
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ylzh.onlineexam.entity.BizArticleTags">
+    insert into biz_article_tags (id, tag_id, article_id, 
+      create_time, update_time)
+    values (#{id,jdbcType=INTEGER}, #{tagId,jdbcType=INTEGER}, #{articleId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.ylzh.onlineexam.entity.BizArticleTags">
+    update biz_article_tags
+    set tag_id = #{tagId,jdbcType=INTEGER},
+      article_id = #{articleId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, tag_id, article_id, create_time, update_time
+    from biz_article_tags
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, tag_id, article_id, create_time, update_time
+    from biz_article_tags
+  </select>
+</mapper>
