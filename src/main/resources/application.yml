@@ -1,5 +1,9 @@
 server:
   port: 8989
+mybatis:
+  type-aliases-package: com.ylzh.onlineexam.entity
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  #config-location:  classpath:/mybatis/config/mybatis-config.xml
 spring:
   thymeleaf:
     # 配置视图路径前缀
@@ -9,13 +13,11 @@ spring:
     mode: html
     # 关闭缓存 修改视图 刷新浏览器就显示 开发阶段务必关闭缓存 (=false)
     cache: false
+  # mapper-locations 是配置我们mapper.xml文件的位置，我们把它配置在/src/main/resource/mybatis/mapper目录下。
+  # config-locations 是配置mybatis-confg.xml文件的位置。我们把它配置在/src/main/resource/mybatis/config目录下。
   datasource:
     username: root
     password: 123456
     # 东8区的Hongkong、Asia/Shanghai或者Asia/Hongkong作为参数
     url: jdbc:mysql://127.0.0.1:3306/onlineexam?useUnicode=true&characterEncoding=utf8&serverTimezone=Hongkong
     driver-class-name: com.mysql.cj.jdbc.Driver
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true

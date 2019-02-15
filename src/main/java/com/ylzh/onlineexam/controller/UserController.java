@@ -23,33 +23,33 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public User save(@RequestBody User user) {
+    public int save(@RequestBody User user) {
         return userService.saveUser(user);
     }
 
     @PutMapping
-    public User update(@RequestBody User user) {
+    public int update(@RequestBody User user) {
         return userService.saveUser(user);
     }
 
     @DeleteMapping(value = "/id/{id}")
-    public String delete(@PathVariable  Long id) {
+    public String delete(@PathVariable  int id) {
         userService.deleteById(id);
         return "删除成功";
     }
 
     @GetMapping(value = "/id/{id}")
-    public User findById (@PathVariable Long id) {
+    public User findById (@PathVariable int id) {
         return userService.getById(id);
     }
 
     @GetMapping(value = "/username/{username}")
-    public User findByUsername (@PathVariable String username) {
+    public List<User> findByUsername (@PathVariable String username) {
         return userService.getByUserName(username);
     }
 
     @GetMapping(value = "/")
     public List<User> findAll () {
-        return userService.queryAll();
+    	return userService.queryAll();
     }
 }

@@ -1,47 +1,33 @@
-/*
- * database create table by this class through hibernate
- * table name is user 
- * */
 package com.ylzh.onlineexam.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@JsonIgnoreProperties(value={"hibernateLazyInitializer","handler","fieldHandler"}) 
-@Entity
+/**
+ * @Auther: ylzh
+ * @Date: 2019/2/15 14:52
+ * @Description: 用户
+ */
 public class User {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
+
+    private int id;
 
     /**
-                 * 用户名
+     * 用户名
      */
-    @Column(name = "username", nullable = true, length = 32)
     private String username;
 
     /**
-                  * 密码
+     * 密码
      */
-    @Column(name = "password", nullable = true, length = 32)
     private String password;
 
     /**
-                  * 年龄
+     * 年龄
      */
-    @Column(name = "age", nullable = true, length = 11)
     private Integer age;
 
     /**
-                  * 性别 1=男 2=女 其他=保密
+     * 性别 1=男 2=女 其他=保密
      */
-    @Column(name = "sex", nullable = true, length = 11)
     private Integer sex;
 
 
@@ -77,11 +63,11 @@ public class User {
         this.sex = sex;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
+    public void setId(int id) {
+        this.id = id;
+    }
 }
