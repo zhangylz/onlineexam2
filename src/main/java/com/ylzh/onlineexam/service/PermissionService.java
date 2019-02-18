@@ -3,7 +3,7 @@ package com.ylzh.onlineexam.service;
 import java.util.List;
 import java.util.Set;
 
-import com.exam.model.Permission;
+import com.ylzh.onlineexam.entity.Permission;
 
 public interface PermissionService {
 

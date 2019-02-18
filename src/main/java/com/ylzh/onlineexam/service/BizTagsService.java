@@ -2,7 +2,7 @@ package com.ylzh.onlineexam.service;
 
 import java.util.List;
 
-import com.exam.model.BizTags;
+import com.ylzh.onlineexam.entity.BizTags;
 
 public interface BizTagsService extends BaseService<BizTags>{
     List<BizTags> selectTags(BizTags bizTags);

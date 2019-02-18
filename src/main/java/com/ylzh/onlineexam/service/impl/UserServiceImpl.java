@@ -1,4 +1,4 @@
-package com.exam.service.impl;
+package com.ylzh.onlineexam.service.impl;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import com.ylzh.onlineexam.service.UserService;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.session.Session;
@@ -21,14 +22,13 @@ import org.crazycake.shiro.RedisSessionDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.exam.mapper.UserMapper;
-import com.exam.mapper.UserRoleMapper;
-import com.exam.model.User;
-import com.exam.model.UserRole;
-import com.exam.service.UserService;
-import com.exam.util.ResultUtil;
-import com.exam.vo.UserOnlineVo;
-import com.exam.vo.base.ResponseVo;
+import com.ylzh.onlineexam.mapper.UserMapper;
+import com.ylzh.onlineexam.mapper.UserRoleMapper;
+import com.ylzh.onlineexam.entity.User;
+import com.ylzh.onlineexam.entity.UserRole;
+import com.ylzh.onlineexam.util.ResultUtil;
+import com.ylzh.onlineexam.vo.UserOnlineVO;
+import com.ylzh.onlineexam.vo.base.ResponseVO;
 
 
 @Service
@@ -89,11 +89,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseVo addAssignRole(String userId, List<String> roleIds) {
+    public ResponseVO addAssignRole(String userId, List<String> roleIds) {
         try{
             UserRole userRole = new UserRole();
             userRole.setUserId(userId);
-            userRoleMapper.delete(userRole);
+            userRoleMapper.deleteByPrimaryKey(userRole.getId());
             for(String roleId :roleIds){
                 userRole.setId(null);
                 userRole.setRoleId(roleId);
@@ -111,13 +111,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserOnlineVo> selectOnlineUsers(UserOnlineVo userVo) {
+    public List<UserOnlineVO> selectOnlineUsers(UserOnlineVO userVo) {
         // 因为我们是用redis实现了shiro的session的Dao,而且是采用了shiro+redis这个插件
         // 所以从spring容器中获取redisSessionDAO
         // 来获取session列表.
         Collection<Session> sessions = redisSessionDAO.getActiveSessions();
         Iterator<Session> it = sessions.iterator();
-        List<UserOnlineVo> onlineUserList = new ArrayList<UserOnlineVo>();
+        List<UserOnlineVO> onlineUserList = new ArrayList<UserOnlineVO>();
         // 遍历session
         while (it.hasNext()) {
             // 这是shiro已经存入session的
@@ -127,7 +127,7 @@ public class UserServiceImpl implements UserService {
             if(session.getAttribute("kickout") != null) {
                 continue;
             }
-            UserOnlineVo onlineUser = getSessionBo(session);
+            UserOnlineVO onlineUser = getSessionBo(session);
             if(onlineUser!=null){
                 /*用户名搜索*/
                 if(StringUtils.isNotBlank(userVo.getUsername())){
@@ -163,7 +163,7 @@ public class UserServiceImpl implements UserService {
         return kickoutSession;
     }
 
-    private UserOnlineVo getSessionBo(Session session){
+    private UserOnlineVO getSessionBo(Session session){
         //获取session登录信息。
         Object obj = session.getAttribute(DefaultSubjectContext.PRINCIPALS_SESSION_KEY);
         if(null == obj){
@@ -176,7 +176,7 @@ public class UserServiceImpl implements UserService {
             if(null != obj && obj instanceof User){
                 User user = (User) obj;
                 //存储session + user 综合信息
-                UserOnlineVo userBo = new UserOnlineVo();
+                UserOnlineVO userBo = new UserOnlineVO();
                 //最后一次和系统交互的时间
                 userBo.setLastAccess(session.getLastAccessTime());
                 //主机的ip地址

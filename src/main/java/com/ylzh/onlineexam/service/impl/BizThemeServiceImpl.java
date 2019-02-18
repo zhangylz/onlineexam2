@@ -1,13 +1,13 @@
-package com.exam.service.impl;
+package com.ylzh.onlineexam.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.exam.annotation.RedisCache;
-import com.exam.mapper.BizThemeMapper;
-import com.exam.model.BizTheme;
-import com.exam.service.BizThemeService;
-import com.exam.util.CoreConst;
+import com.ylzh.onlineexam.annotation.RedisCache;
+import com.ylzh.onlineexam.mapper.BizThemeMapper;
+import com.ylzh.onlineexam.entity.BizTheme;
+import com.ylzh.onlineexam.service.BizThemeService;
+import com.ylzh.onlineexam.util.CoreConst;
 
 @Service
 public class BizThemeServiceImpl extends BaseServiceImpl<BizTheme> implements BizThemeService {
@@ -25,7 +25,7 @@ public class BizThemeServiceImpl extends BaseServiceImpl<BizTheme> implements Bi
     @RedisCache
     public BizTheme selectCurrent() {
         BizTheme bizTheme = new BizTheme();
-        bizTheme.setStatus(CoreConst.STATUS_VALID);
+        bizTheme.setStatus((CoreConst.STATUS_VALID==1)?true:false);
         return themeMapper.selectOne(bizTheme);
     }
 

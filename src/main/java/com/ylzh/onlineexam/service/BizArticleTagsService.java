@@ -20,7 +20,7 @@
 package com.ylzh.onlineexam.service;
 
 
-import com.exam.model.BizArticleTags;
+import com.ylzh.onlineexam.entity.BizArticleTags;
 
 public interface BizArticleTagsService extends BaseService<BizArticleTags> {
 

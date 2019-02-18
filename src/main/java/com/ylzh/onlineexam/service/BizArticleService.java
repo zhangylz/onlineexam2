@@ -2,7 +2,7 @@ package com.ylzh.onlineexam.service;
 
 import java.util.List;
 
-import com.ylzh.onlineexam.model.BizArticle;
+import com.ylzh.onlineexam.entity.BizArticle;
 import com.ylzh.onlineexam.vo.ArticleConditionVO;
 
 public interface BizArticleService extends BaseService<BizArticle> {

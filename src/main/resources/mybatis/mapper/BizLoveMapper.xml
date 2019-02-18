@@ -15,6 +15,9 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
+  <sql id="Base_Column_List">
+		id,biz_id,biz_type,user_id,user_ip,status,create_time,update_time
+	</sql>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
       WARNING - @mbggenerated
@@ -66,5 +69,11 @@
     -->
     select id, biz_id, biz_type, user_id, user_ip, `status`, create_time, update_time
     from biz_love
+  </select>
+  <select id="checkLove" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List"/>
+    FROM biz_love
+    WHERE biz_id=#{bizId}
+    AND user_ip=#{userIp}
   </select>
 </mapper>

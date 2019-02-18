@@ -2,7 +2,7 @@ package com.ylzh.onlineexam.service;
 
 import java.util.List;
 
-import com.ylzh.onlineexam.model.Subject;
+import com.ylzh.onlineexam.entity.Subject;
 
 public interface SubjectService extends BaseService<Subject> {
 	

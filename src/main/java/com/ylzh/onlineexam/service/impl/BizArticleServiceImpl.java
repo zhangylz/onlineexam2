@@ -1,4 +1,4 @@
-package com.exam.service.impl;
+package com.ylzh.onlineexam.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,11 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import com.exam.mapper.BizArticleMapper;
-import com.exam.model.BizArticle;
-import com.exam.service.BizArticleService;
-import com.exam.util.CoreConst;
-import com.exam.vo.ArticleConditionVo;
+import com.ylzh.onlineexam.mapper.BizArticleMapper;
+import com.ylzh.onlineexam.entity.BizArticle;
+import com.ylzh.onlineexam.service.BizArticleService;
+import com.ylzh.onlineexam.util.CoreConst;
+import com.ylzh.onlineexam.vo.ArticleConditionVO;
 import com.github.pagehelper.PageHelper;
 
 @Service
@@ -24,7 +24,7 @@ public class BizArticleServiceImpl extends BaseServiceImpl<BizArticle> implement
 
 
     @Override
-    public List<BizArticle> findByCondition(ArticleConditionVo vo) {
+    public List<BizArticle> findByCondition(ArticleConditionVO vo) {
         List<BizArticle> list = bizArticleMapper.findByCondition(vo);
         if (!CollectionUtils.isEmpty(list)) {
             List<Integer> ids = new ArrayList<>();
@@ -48,7 +48,7 @@ public class BizArticleServiceImpl extends BaseServiceImpl<BizArticle> implement
 
     @Override
     public List<BizArticle> sliderList() {
-        ArticleConditionVo vo = new ArticleConditionVo();
+        ArticleConditionVO vo = new ArticleConditionVO();
         vo.setSlider(true);
         vo.setStatus(CoreConst.STATUS_VALID);
         return this.findByCondition(vo);
@@ -56,7 +56,7 @@ public class BizArticleServiceImpl extends BaseServiceImpl<BizArticle> implement
 
     @Override
     public List<BizArticle> recommendedList(int pageSize) {
-        ArticleConditionVo vo = new ArticleConditionVo();
+        ArticleConditionVO vo = new ArticleConditionVO();
         vo.setRecommended(true);
         vo.setStatus(CoreConst.STATUS_VALID);
         vo.setPageSize(pageSize);
@@ -66,7 +66,7 @@ public class BizArticleServiceImpl extends BaseServiceImpl<BizArticle> implement
 
     @Override
     public List<BizArticle> recentList(int pageSize) {
-        ArticleConditionVo vo = new ArticleConditionVo();
+        ArticleConditionVO vo = new ArticleConditionVO();
         vo.setPageSize(pageSize);
         vo.setStatus(CoreConst.STATUS_VALID);
         vo.setRecentFlag(true);
@@ -76,7 +76,7 @@ public class BizArticleServiceImpl extends BaseServiceImpl<BizArticle> implement
 
     @Override
     public List<BizArticle> randomList(int pageSize) {
-        ArticleConditionVo vo = new ArticleConditionVo();
+        ArticleConditionVO vo = new ArticleConditionVO();
         vo.setRandom(true);
         vo.setStatus(CoreConst.STATUS_VALID);
         vo.setPageSize(pageSize);

@@ -1,12 +1,12 @@
-package com.exam.service.impl;
+package com.ylzh.onlineexam.service.impl;
 
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.exam.mapper.BizArticleMapper;
-import com.exam.service.BizSiteInfoService;
+import com.ylzh.onlineexam.mapper.BizArticleMapper;
+import com.ylzh.onlineexam.service.BizSiteInfoService;
 
 @Service
 public class BizSiteInfoServiceImpl implements BizSiteInfoService {

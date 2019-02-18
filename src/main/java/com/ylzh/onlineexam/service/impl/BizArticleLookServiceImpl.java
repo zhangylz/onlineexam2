@@ -1,13 +1,13 @@
-package com.exam.service.impl;
+package com.ylzh.onlineexam.service.impl;
 
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.exam.mapper.BizArticleLookMapper;
-import com.exam.model.BizArticleLook;
-import com.exam.service.BizArticleLookService;
+import com.ylzh.onlineexam.mapper.BizArticleLookMapper;
+import com.ylzh.onlineexam.entity.BizArticleLook;
+import com.ylzh.onlineexam.service.BizArticleLookService;
 
 @Service
 public class BizArticleLookServiceImpl extends BaseServiceImpl<BizArticleLook> implements BizArticleLookService {

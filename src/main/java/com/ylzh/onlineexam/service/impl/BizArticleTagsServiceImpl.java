@@ -1,4 +1,4 @@
-package com.exam.service.impl;
+package com.ylzh.onlineexam.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -7,9 +7,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.exam.mapper.BizArticleTagsMapper;
-import com.exam.model.BizArticleTags;
-import com.exam.service.BizArticleTagsService;
+import com.ylzh.onlineexam.mapper.BizArticleTagsMapper;
+import com.ylzh.onlineexam.entity.BizArticleTags;
+import com.ylzh.onlineexam.service.BizArticleTagsService;
 
 import tk.mybatis.mapper.entity.Example;
 
