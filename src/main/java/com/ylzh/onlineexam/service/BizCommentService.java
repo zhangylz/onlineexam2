@@ -2,7 +2,7 @@ package com.ylzh.onlineexam.service;
 
 import java.util.List;
 
-import com.ylzh.onlineexam.model.BizComment;
+import com.ylzh.onlineexam.entity.BizComment;
 import com.ylzh.onlineexam.vo.CommentConditionVO;
 
 public interface BizCommentService extends BaseService<BizComment> {

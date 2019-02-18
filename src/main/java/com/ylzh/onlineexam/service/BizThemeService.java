@@ -1,6 +1,6 @@
 package com.ylzh.onlineexam.service;
 
-import com.exam.model.BizTheme;
+import com.ylzh.onlineexam.entity.BizTheme;
 
 public interface BizThemeService  extends BaseService<BizTheme>  {
     int useTheme(Integer id);

@@ -2,7 +2,7 @@ package com.ylzh.onlineexam.service;
 
 import java.util.List;
 
-import com.exam.model.BizCategory;
+import com.ylzh.onlineexam.entity.BizCategory;
 
 public interface BizCategoryService extends BaseService<BizCategory>{
 

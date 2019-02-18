@@ -1,4 +1,4 @@
-package com.exam.service.impl;
+package com.ylzh.onlineexam.service.impl;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -9,18 +9,18 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.exam.mapper.PermissionMapper;
-import com.exam.mapper.RoleMapper;
-import com.exam.mapper.RolePermissionMapper;
-import com.exam.mapper.UserMapper;
-import com.exam.model.Permission;
-import com.exam.model.Role;
-import com.exam.model.RolePermission;
-import com.exam.model.User;
-import com.exam.service.RoleService;
-import com.exam.util.ResultUtil;
-import com.exam.util.UUIDUtil;
-import com.exam.vo.base.ResponseVo;
+import com.ylzh.onlineexam.mapper.PermissionMapper;
+import com.ylzh.onlineexam.mapper.RoleMapper;
+import com.ylzh.onlineexam.mapper.RolePermissionMapper;
+import com.ylzh.onlineexam.mapper.UserMapper;
+import com.ylzh.onlineexam.entity.Permission;
+import com.ylzh.onlineexam.entity.Role;
+import com.ylzh.onlineexam.entity.RolePermission;
+import com.ylzh.onlineexam.entity.User;
+import com.ylzh.onlineexam.service.RoleService;
+import com.ylzh.onlineexam.util.ResultUtil;
+import com.ylzh.onlineexam.util.UUIDUtil;
+import com.ylzh.onlineexam.vo.base.ResponseVO;
 
 @Service
 public class RoleServiceImpl implements RoleService {
@@ -82,7 +82,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public ResponseVo addAssignPermission(String roleId, List<String> permissionIds) {
+    public ResponseVO addAssignPermission(String roleId, List<String> permissionIds) {
         try{
             RolePermission rolePermission = new RolePermission();
             rolePermission.setRoleId(roleId);

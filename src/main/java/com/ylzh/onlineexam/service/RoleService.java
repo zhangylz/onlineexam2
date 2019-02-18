@@ -3,9 +3,9 @@ package com.ylzh.onlineexam.service;
 import java.util.List;
 import java.util.Set;
 
-import com.ylzh.onlineexam.model.Permission;
-import com.ylzh.onlineexam.model.Role;
-import com.ylzh.onlineexam.model.User;
+import com.ylzh.onlineexam.entity.Permission;
+import com.ylzh.onlineexam.entity.Role;
+import com.ylzh.onlineexam.entity.User;
 import com.ylzh.onlineexam.vo.base.ResponseVO;
 
 public interface RoleService {

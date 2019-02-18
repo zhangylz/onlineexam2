@@ -1,4 +1,4 @@
-package com.exam.service.impl;
+package com.ylzh.onlineexam.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
@@ -7,10 +7,10 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.exam.annotation.RedisCache;
-import com.exam.mapper.SysConfigMapper;
-import com.exam.model.SysConfig;
-import com.exam.service.SysConfigService;
+import com.ylzh.onlineexam.annotation.RedisCache;
+import com.ylzh.onlineexam.mapper.SysConfigMapper;
+import com.ylzh.onlineexam.entity.SysConfig;
+import com.ylzh.onlineexam.service.SysConfigService;
 
 @Service
 public class SysConfigServiceImpl implements SysConfigService {

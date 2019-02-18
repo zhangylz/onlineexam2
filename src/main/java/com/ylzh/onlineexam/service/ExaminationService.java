@@ -2,7 +2,7 @@ package com.ylzh.onlineexam.service;
 
 import java.util.List;
 
-import com.ylzh.onlineexam.model.Examination;
+import com.ylzh.onlineexam.entity.Examination;
 import com.ylzh.onlineexam.vo.ExaminationConditionVO;
 
 public interface ExaminationService extends BaseService<Examination> {

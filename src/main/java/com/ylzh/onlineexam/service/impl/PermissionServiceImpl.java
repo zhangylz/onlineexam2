@@ -1,4 +1,4 @@
-package com.exam.service.impl;
+package com.ylzh.onlineexam.service.impl;
 
 import java.util.Date;
 import java.util.List;
@@ -7,11 +7,11 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.exam.mapper.PermissionMapper;
-import com.exam.model.Permission;
-import com.exam.service.PermissionService;
-import com.exam.util.CoreConst;
-import com.exam.util.UUIDUtil;
+import com.ylzh.onlineexam.mapper.PermissionMapper;
+import com.ylzh.onlineexam.entity.Permission;
+import com.ylzh.onlineexam.service.PermissionService;
+import com.ylzh.onlineexam.util.CoreConst;
+import com.ylzh.onlineexam.util.UUIDUtil;
 
 @Service
 public class PermissionServiceImpl implements PermissionService {

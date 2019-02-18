@@ -1,6 +1,6 @@
 package com.ylzh.onlineexam.service;
 
-import com.ylzh.onlineexam.model.ExamQuestion;
+import com.ylzh.onlineexam.entity.ExamQuestion;
 
 public interface ExamQuestionService extends BaseService<ExamQuestion> {
 

@@ -1,13 +1,13 @@
-package com.exam.service.impl;
+package com.ylzh.onlineexam.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.exam.mapper.SubjectMapper;
-import com.exam.model.Subject;
-import com.exam.service.SubjectService;
+import com.ylzh.onlineexam.mapper.SubjectMapper;
+import com.ylzh.onlineexam.entity.Subject;
+import com.ylzh.onlineexam.service.SubjectService;
 
 @Service
 public class SubjectServiceImpl extends BaseServiceImpl<Subject> implements SubjectService {

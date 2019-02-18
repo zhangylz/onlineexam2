@@ -1,4 +1,4 @@
-package com.exam.service.impl;
+package com.ylzh.onlineexam.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,11 +10,11 @@ import org.apache.shiro.util.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.exam.mapper.ExaminationMapper;
-import com.exam.mapper.QuestionMapper;
-import com.exam.model.Examination;
-import com.exam.service.ExaminationService;
-import com.exam.vo.ExaminationConditionVo;
+import com.ylzh.onlineexam.mapper.ExaminationMapper;
+import com.ylzh.onlineexam.mapper.QuestionMapper;
+import com.ylzh.onlineexam.entity.Examination;
+import com.ylzh.onlineexam.service.ExaminationService;
+import com.ylzh.onlineexam.vo.ExaminationConditionVO;
 
 @Service
 public class ExaminationServiceImpl extends BaseServiceImpl<Examination> implements ExaminationService {
@@ -26,7 +26,7 @@ public class ExaminationServiceImpl extends BaseServiceImpl<Examination> impleme
 	private QuestionMapper questionMapper;
 
 	@Override
-	public List<Examination> findByCondition(ExaminationConditionVo vo) {
+	public List<Examination> findByCondition(ExaminationConditionVO vo) {
 		List<Examination> examList = examMapper.findByCondition(vo);
 		if(!CollectionUtils.isEmpty(examList)) {
 			List<Integer> ids = new ArrayList<>();

@@ -1,4 +1,4 @@
-package com.exam.service.impl;
+package com.ylzh.onlineexam.service.impl;
 
 import java.util.Date;
 import java.util.List;
@@ -6,10 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.exam.mapper.QuestionMapper;
-import com.exam.model.Question;
-import com.exam.service.QuestionService;
-import com.exam.vo.QuestionConditionVo;
+import com.ylzh.onlineexam.mapper.QuestionMapper;
+import com.ylzh.onlineexam.entity.Question;
+import com.ylzh.onlineexam.service.QuestionService;
+import com.ylzh.onlineexam.vo.QuestionConditionVO;
 
 @Service
 public class QuestionServiceImpl extends BaseServiceImpl<Question> implements QuestionService {
@@ -18,7 +18,7 @@ public class QuestionServiceImpl extends BaseServiceImpl<Question> implements Qu
 	private QuestionMapper questionMapper;
 
 	@Override
-	public List<Question> findByCondition(QuestionConditionVo vo) {
+	public List<Question> findByCondition(QuestionConditionVO vo) {
 		List<Question> list = questionMapper.findByCondition(vo);
 		return list;
 	}

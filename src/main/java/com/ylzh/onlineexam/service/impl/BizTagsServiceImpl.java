@@ -1,13 +1,13 @@
-package com.exam.service.impl;
+package com.ylzh.onlineexam.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.exam.mapper.BizTagsMapper;
-import com.exam.model.BizTags;
-import com.exam.service.BizTagsService;
+import com.ylzh.onlineexam.mapper.BizTagsMapper;
+import com.ylzh.onlineexam.entity.BizTags;
+import com.ylzh.onlineexam.service.BizTagsService;
 
 @Service
 public class BizTagsServiceImpl extends BaseServiceImpl<BizTags> implements BizTagsService {

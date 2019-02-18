@@ -1,4 +1,4 @@
-package com.exam.service.impl;
+package com.ylzh.onlineexam.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -7,9 +7,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.exam.mapper.ExamQuestionMapper;
-import com.exam.model.ExamQuestion;
-import com.exam.service.ExamQuestionService;
+import com.ylzh.onlineexam.mapper.ExamQuestionMapper;
+import com.ylzh.onlineexam.entity.ExamQuestion;
+import com.ylzh.onlineexam.service.ExamQuestionService;
 
 import tk.mybatis.mapper.entity.Example;
 
@@ -22,10 +22,7 @@ public class ExamQuestionServiceImpl extends BaseServiceImpl<ExamQuestion> imple
 	
 	@Override
 	public int removeByExamId(Integer examId) {
-		Example example = new Example(ExamQuestion.class);
-		Example.Criteria criteria = example.createCriteria();
-		criteria.andEqualTo("examId", examId);
-		return examQuestionMapper.deleteByExample(example);
+		return examQuestionMapper.deleteByExampleId(examId);
 	}
 
 	@Override

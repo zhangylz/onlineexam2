@@ -2,7 +2,7 @@ package com.ylzh.onlineexam.service;
 
 import java.util.List;
 
-import com.exam.model.BizLink;
+import com.ylzh.onlineexam.entity.BizLink;
 
 public interface BizLinkService extends BaseService<BizLink> {
     List<BizLink> selectLinks(BizLink bizLink);

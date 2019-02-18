@@ -1,11 +1,11 @@
-package com.exam.service.impl;
+package com.ylzh.onlineexam.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.exam.mapper.BizLoveMapper;
-import com.exam.model.BizLove;
-import com.exam.service.BizLoveService;
+import com.ylzh.onlineexam.mapper.BizLoveMapper;
+import com.ylzh.onlineexam.entity.BizLove;
+import com.ylzh.onlineexam.service.BizLoveService;
 
 @Service
 public class BizLoveServiceImpl extends BaseServiceImpl<BizLove> implements BizLoveService {

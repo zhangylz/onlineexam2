@@ -1,4 +1,4 @@
-package com.exam.service.impl;
+package com.ylzh.onlineexam.service.impl;
 
 import java.util.List;
 import java.util.Set;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import com.alibaba.fastjson.JSON;
-import com.exam.service.RedisService;
+import com.ylzh.onlineexam.service.RedisService;
 
 @Service
 public class RedisServiceImpl implements RedisService {
