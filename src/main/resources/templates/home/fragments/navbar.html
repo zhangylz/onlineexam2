@@ -9,33 +9,9 @@
 <nav id ="navbar" th:fragment="navbar" class="navbar navbar-default ">
 	<div class="container">
     	<div class="navbar-header">
-	    	<a class="logo-a" href="/">
+	    	<a class="logo-a" href="/login">
 	            <img src="/img/logo.png" alt="logo" />
 	        </a>
-	    </div>
-	    <div class="collapse navbar-collapse navbar-right" aria-expanded="false">
-	    	<ul class="nav navbar-nav">
-	    		<li th:class="${category=='index' ? 'active' : ''}">
-                    <a th:href="@{/}">
-                    	<span class="glyphicon glyphicon-th-large"></span> 首页
-                    </a>
-                </li>
-                <li class="">
-                    <a th:href="@{/}">
-                       	 <span class="glyphicon glyphicon-road"></span> 在线考试
-                    </a>
-                </li>
-                <li class="">
-                    <a th:href="@{/}">
-                       	<span class="glyphicon glyphicon-hdd"></span> 题库中心
-                    </a>
-                </li>
-                <li class="">
-                    <a th:href="@{/}">
-                       	 <span class="glyphicon glyphicon-send"></span> 讨论区
-                    </a>
-                </li>
-	    	</ul>
 	    </div>
     </div>
 </nav>

@@ -1,12 +1,16 @@
 package com.ylzh.onlineexam.controller;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Deque;
 import java.util.List;
 import java.util.Map;
 
+import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
 
+import com.ylzh.onlineexam.util.PasswordHelper;
+import com.ylzh.onlineexam.util.UUIDUtil;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -60,6 +64,56 @@ public class SystemController{
         }
         getSysConfig(model);
         return "system/login";
+    }
+
+    /*注册*/
+    @GetMapping("/register")
+    public  String register(Model model) {
+        if(SecurityUtils.getSubject().isAuthenticated()){
+            return "redirect:/index";
+        }
+        getSysConfig(model);
+        return "system/register";
+    }
+    /*提交登录*/
+    @PostMapping("/register")
+    @ResponseBody
+    public ResponseVO register(HttpServletRequest request, String userName, String password,String confirmPassword, String verification, String phoneCode, String email){
+        //判断验证码
+        String rightCode = (String) request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
+        if (StringUtils.isNotBlank(verification) && StringUtils.isNotBlank(rightCode) && verification.equals(rightCode)) {
+            //验证码通过
+        } else {
+            return ResultUtil.error("验证码错误！");
+        }
+        //判断两次输入密码是否相等
+        if (confirmPassword != null && password != null) {
+            if (!confirmPassword.equals(password)) {
+                return ResultUtil.error("两次密码不一致");
+            }
+        }
+        User userForm = new User();
+        userForm.setUsername(userName);
+        userForm.setNickname(userName);
+        userForm.setUserId(UUIDUtil.getUniqueIdByUUId());
+        userForm.setStatus(CoreConst.STATUS_VALID);
+        userForm.setEmail(email);
+        userForm.setPhone(phoneCode);
+        userForm.setSalt("ylzh");
+        userForm.setSalt(userForm.getCredentialsSalt());
+        Date date = new Date();
+        userForm.setCreateTime(date);
+        userForm.setUpdateTime(date);
+        userForm.setLastLoginTime(date);
+        userForm.setPassword(confirmPassword);
+        PasswordHelper.encryptPassword(userForm);
+        System.out.println("register user info :" + userForm.toString());
+        int num = userService.register(userForm);
+        if(num > 0){
+            return ResultUtil.success("添加用户成功");
+        }else {
+            return ResultUtil.error("添加用户失败");
+        }
     }
 
     /*提交登录*/
@@ -129,7 +183,9 @@ public class SystemController{
     }
 
     private void getSysConfig(Model model){
+        System.out.println("getSysConfig =" + model);
         Map<String, String> map = configService.selectAll();
+        System.out.println("config map =" + map);
         model.addAttribute("sysConfig",map);
     }
 
