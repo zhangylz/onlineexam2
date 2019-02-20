@@ -13,14 +13,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ylzh.onlineexam.holder.SpringContextHolder;
-//import com.ylzh.onlineexam.entity.Permission;
-//import com.ylzh.onlineexam.service.PermissionService;
+import com.ylzh.onlineexam.entity.Permission;
+import com.ylzh.onlineexam.service.PermissionService;
 import com.ylzh.onlineexam.util.CoreConst;
 
 @Service
 public class ShiroService {
-//    @Autowired
-//    private PermissionService permissionService;
+    @Autowired
+    private PermissionService permissionService;
     /**
      * 初始化权限
      */
@@ -39,13 +39,13 @@ public class ShiroService {
         filterChainDefinitionMap.put("/libs/**","anon");
         filterChainDefinitionMap.put("/favicon.ico", "anon");
         filterChainDefinitionMap.put("/verificationCode", "anon");
-//        List<Permission> permissionList = permissionService.selectAll(CoreConst.STATUS_VALID);
-//        for(Permission permission : permissionList){
-//            if (StringUtils.isNotBlank(permission.getUrl())&& StringUtils.isNotBlank(permission.getPerms())) {
-//                String perm = "perms[" + permission.getPerms()+ "]";
-//                filterChainDefinitionMap.put(permission.getUrl(),perm+",kickout");
-//            }
-//        }
+        List<Permission> permissionList = permissionService.selectAll(CoreConst.STATUS_VALID);
+        for(Permission permission : permissionList){
+            if (StringUtils.isNotBlank(permission.getUrl())&& StringUtils.isNotBlank(permission.getPerms())) {
+                String perm = "perms[" + permission.getPerms()+ "]";
+                filterChainDefinitionMap.put(permission.getUrl(),perm+",kickout");
+            }
+        }
         filterChainDefinitionMap.put("/**", "user,kickout");
         return filterChainDefinitionMap;
     }
