@@ -29,8 +29,8 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.ylzh.onlineexam.entity.User;
-//import com.ylzh.onlineexam.service.PermissionService;
-//import com.ylzh.onlineexam.service.RoleService;
+import com.ylzh.onlineexam.service.PermissionService;
+import com.ylzh.onlineexam.service.RoleService;
 import com.ylzh.onlineexam.service.UserService;
 import com.ylzh.onlineexam.util.CoreConst;
 import com.ylzh.onlineexam.util.IpUtil;
@@ -40,10 +40,10 @@ public class ShiroRealm extends AuthorizingRealm {
 
     @Autowired
     private UserService userService;
-//    @Autowired
-//    private RoleService roleService;
-//    @Autowired
-//    private PermissionService permissionService;
+    @Autowired
+    private RoleService roleService;
+    @Autowired
+    private PermissionService permissionService;
     @Autowired
     private RedisSessionDAO redisSessionDAO;
 
@@ -55,8 +55,8 @@ public class ShiroRealm extends AuthorizingRealm {
         }
         User user = (User) principals.getPrimaryPrincipal();
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-//        info.setRoles(roleService.findRoleByUserId(user.getUserId()));
-//        info.setStringPermissions(permissionService.findPermsByUserId(user.getUserId()));
+        info.setRoles(roleService.findRoleByUserId(user.getUserId()));
+        info.setStringPermissions(permissionService.findPermsByUserId(user.getUserId()));
         return info;
     }
 
