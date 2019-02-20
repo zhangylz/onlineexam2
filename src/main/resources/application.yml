@@ -21,8 +21,16 @@ spring:
     username: root
     password: 123456
     # 东8区的Hongkong、Asia/Shanghai或者Asia/Hongkong作为参数
-    url: jdbc:mysql://127.0.0.1:3306/onlineexam?useUnicode=true&characterEncoding=utf8&serverTimezone=Hongkong
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/onlineexam?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Hongkong
     driver-class-name: com.mysql.cj.jdbc.Driver
+    # 初始化大小，最小，最大
+    initialSize: 1
+    minIdle: 3
+    maxActive: 20
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    filters: stat,wall,slf4j
   redis:
     host: localhost
     port: 6379
