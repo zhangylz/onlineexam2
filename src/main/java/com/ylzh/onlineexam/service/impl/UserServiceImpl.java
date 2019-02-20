@@ -23,9 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ylzh.onlineexam.mapper.UserMapper;
-import com.ylzh.onlineexam.mapper.UserRoleMapper;
 import com.ylzh.onlineexam.entity.User;
-import com.ylzh.onlineexam.entity.UserRole;
 import com.ylzh.onlineexam.util.ResultUtil;
 import com.ylzh.onlineexam.vo.UserOnlineVO;
 import com.ylzh.onlineexam.vo.base.ResponseVO;
@@ -46,8 +44,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
-    @Autowired
-    private UserRoleMapper userRoleMapper;
+//    @Autowired
+//    private UserRoleMapper userRoleMapper;
 
     @Override
     public User selectByUsername(String username) {
@@ -91,14 +89,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseVO addAssignRole(String userId, List<String> roleIds) {
         try{
-            UserRole userRole = new UserRole();
-            userRole.setUserId(userId);
-            userRoleMapper.deleteByPrimaryKey(userRole.getId());
-            for(String roleId :roleIds){
-                userRole.setId(null);
-                userRole.setRoleId(roleId);
-                userRoleMapper.insert(userRole);
-            }
+//            UserRole userRole = new UserRole();
+//            userRole.setUserId(userId);
+//            userRoleMapper.deleteByPrimaryKey(userRole.getId());
+//            for(String roleId :roleIds){
+//                userRole.setId(null);
+//                userRole.setRoleId(roleId);
+//                userRoleMapper.insert(userRole);
+//            }
             return ResultUtil.success("分配角色成功");
         }catch(Exception e){
             return ResultUtil.error("分配角色失败");

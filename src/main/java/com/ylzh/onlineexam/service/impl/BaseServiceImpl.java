@@ -2,10 +2,10 @@ package com.ylzh.onlineexam.service.impl;
 
 import java.util.List;
 
+import com.ylzh.onlineexam.util.MapperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ylzh.onlineexam.service.BaseService;
-import com.ylzh.onlineexam.util.MapperUtil;
 
 public class BaseServiceImpl<T> implements BaseService<T> {
     @Autowired

@@ -22,7 +22,10 @@ public class ExamQuestionServiceImpl extends BaseServiceImpl<ExamQuestion> imple
 	
 	@Override
 	public int removeByExamId(Integer examId) {
-		return examQuestionMapper.deleteByExampleId(examId);
+		Example example = new Example(ExamQuestion.class);
+		Example.Criteria criteria = example.createCriteria();
+		criteria.andEqualTo("examId", examId);
+		return examQuestionMapper.deleteByExample(example);
 	}
 
 	@Override

@@ -3,6 +3,8 @@ server:
 mybatis:
   type-aliases-package: com.ylzh.onlineexam.entity
   mapper-locations: classpath:mybatis/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
   #config-location:  classpath:/mybatis/config/mybatis-config.xml
 spring:
   thymeleaf:
@@ -21,3 +23,26 @@ spring:
     # 东8区的Hongkong、Asia/Shanghai或者Asia/Hongkong作为参数
     url: jdbc:mysql://127.0.0.1:3306/onlineexam?useUnicode=true&characterEncoding=utf8&serverTimezone=Hongkong
     driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: localhost
+    port: 6379
+    password: 123456
+    timeout: 5000
+    jedis:
+      pool:
+        max-idle: 8
+        min-idle: 0
+        max-active: 8
+        max-wait: -1
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+mapper:
+  mappers: com.ylzh.onlineexam.util.MapperUtil
+  not-empty: false
+  identity: MYSQL
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

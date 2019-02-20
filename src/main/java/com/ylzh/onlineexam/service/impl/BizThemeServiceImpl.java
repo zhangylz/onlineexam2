@@ -25,7 +25,7 @@ public class BizThemeServiceImpl extends BaseServiceImpl<BizTheme> implements Bi
     @RedisCache
     public BizTheme selectCurrent() {
         BizTheme bizTheme = new BizTheme();
-        bizTheme.setStatus((CoreConst.STATUS_VALID==1)?true:false);
+        bizTheme.setStatus(CoreConst.STATUS_VALID);
         return themeMapper.selectOne(bizTheme);
     }
 
