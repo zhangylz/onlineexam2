@@ -50,6 +50,12 @@ public class SystemController{
     @Autowired
     private SysConfigService configService;
 
+    /*重定向到login*/
+    @RequestMapping("/")
+    public String redirectLogin() {
+        return "redirect:/login";
+    }
+
     /*后台首页*/
     @RequestMapping(value={"/index"})
     public String index(){

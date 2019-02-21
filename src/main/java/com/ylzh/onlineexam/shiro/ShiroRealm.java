@@ -55,6 +55,7 @@ public class ShiroRealm extends AuthorizingRealm {
         }
         User user = (User) principals.getPrimaryPrincipal();
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+        // 设置分配给用户的权限
         info.setRoles(roleService.findRoleByUserId(user.getUserId()));
         info.setStringPermissions(permissionService.findPermsByUserId(user.getUserId()));
         return info;
