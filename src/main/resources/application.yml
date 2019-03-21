@@ -7,6 +7,7 @@ mybatis:
     map-underscore-to-camel-case: true
   #config-location:  classpath:/mybatis/config/mybatis-config.xml
 spring:
+  #thymeleaf start
   thymeleaf:
     # 配置视图路径前缀
     prefix: classpath:/templates/
@@ -15,6 +16,10 @@ spring:
     mode: html
     # 关闭缓存 修改视图 刷新浏览器就显示 开发阶段务必关闭缓存 (=false)
     cache: false
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+  #thymeleaf end
   # mapper-locations 是配置我们mapper.xml文件的位置，我们把它配置在/src/main/resource/mybatis/mapper目录下。
   # config-locations 是配置mybatis-confg.xml文件的位置。我们把它配置在/src/main/resource/mybatis/config目录下。
   datasource:
