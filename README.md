@@ -4,5 +4,14 @@
 开发环境：
 springboot 2.1.12 + Thymeleaf + JPA
 
+
+相关参考：
+1. 生成 程序启动时显示的文本
 http://patorjk.com/software/taag/#p=display&f=Banner&t=YAN%20%20LEI%20%20ZHANG
-生成 程序启动时显示的文本
+
+
+2. logback日志配置
+https://www.cnblogs.com/zhangjianbing/p/8992897.html
+
+
+
