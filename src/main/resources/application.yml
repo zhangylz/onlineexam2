@@ -29,7 +29,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://127.0.0.1:3306/onlineexam?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Hongkong
     driver-class-name: com.mysql.cj.jdbc.Driver
-    # 初始化大小，最小，最大
+    # 初始化大小，最小保持连接数，最大活跃连接数
     initialSize: 1
     minIdle: 3
     maxActive: 20
@@ -50,6 +50,12 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+  activemq:
+    broker-url:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
 mapper:
   mappers: com.ylzh.onlineexam.util.MapperUtil
   not-empty: false
@@ -59,6 +65,7 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+# log system
 logging:
   config: classpath:logback-spring.xml
   path: D:/nmyslog/nmys

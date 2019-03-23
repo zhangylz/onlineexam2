@@ -16,5 +16,8 @@ https://www.cnblogs.com/zhangjianbing/p/8992897.html
 3. thymeleaf 基础语法 --- P41
 参考 Spring Boot 2企业应用实战
 
+4. jsp支持 --- P53
+参考 Spring Boot 2企业应用实战
+
 
 
